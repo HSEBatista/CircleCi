@@ -1,0 +1,18 @@
+{
+  "imports": [],
+  "translations": [
+    {
+      "name": "testebh",
+      "language": "es"
+    }
+  ],
+  "availableToAllPages": true,
+  "jsEditable": true,
+  "minWidth": 1,
+  "globalEnabled": true,
+  "config": {
+    "exampleBooleanProperty": true,
+    "exampleOptionProperty": "option1",
+    "exampleStringProperty": "Example String Property Value"
+  }
+}

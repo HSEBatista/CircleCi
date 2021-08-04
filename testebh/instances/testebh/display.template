@@ -1,0 +1,33 @@
+<div class="testebh">
+             <select data-bind="options: yearsOption, optionsText: 'titleYear', optionsValue: 'value', optionsCaption: 'Seleccione el Año',
+             event: {change: showTeams}"></select>
+</div>
+<div class="testebh" style="width:500px; height:200px; overflow: auto;">
+    <h1 class="text-center">Liga Americana</h1>
+    <table class="table table-hover table-condensed teamsTable">
+        <thead>
+            <tr>
+                <th>Posicion</th>
+                <th>Equipo</th></tr>
+        </thead>
+        <tbody data-bind="foreach: americaTable">
+            <tr>
+                <td data-bind="text: id"></td>
+                <td data-bind="text: name"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h1 class="text-center">Liga Nacional</h1>
+    <table class="table table-hover table-bordered teamsTable">
+        <thead>
+            <tr><th>Posicion</th><th>Equipo</th></tr>
+        </thead>
+        <tbody data-bind="foreach: nationalTable">
+            <tr>
+                <td data-bind="text: id"></td>
+                <td data-bind="text: name"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
