@@ -38,7 +38,4 @@ workflows:
                 arguments: '--dryrun'
                 from: /build_asset.txt
                 to: 'https://p7067536c1tst-admin.occa.ocs.oraclecloud.com'
-workflows:
-  s3-example:
-    jobs:
-      - build
+
