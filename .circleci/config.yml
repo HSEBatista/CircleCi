@@ -22,5 +22,23 @@ workflows:
             - run: npm run build
             - aws-s3/copy:
                 from: dist/
-                to: s3://sample-app-vue
+                to: https://p7067536c1tst-admin.occa.ocs.oraclecloud.com
                 arguments: --recursive
+          steps:
+            - checkout
+            - run: dcu --transfer "widget/Cimaco Búsqueda de Mesa de Regalos/instances/cimaco-gift-registry-search/display.template"--node https://p7067536c1tst-admin.occa.ocs.oraclecloud.com-k eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NDViN2UxMi05MWZlLTRhOTEtYTBiNy1mZjBjMjgyMmI2NjAiLCJpc3MiOiJhcHBsaWNhdGlvbkF1dGgiLCJleHAiOjE2NTYxNzMwMjIsImlhdCI6MTYyNDYzNzAyMn0=.e6XDoSUDy7GdKShVLPM4RXKSZqsRxxDjAiydG+JUE6I=
+            - OCC/sync:
+                arguments: |
+                  --acl public-read \
+                  --cache-control "max-age=86400"
+                dcu-secret-access-key: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NDViN2UxMi05MWZlLTRhOTEtYTBiNy1mZjBjMjgyMmI2NjAiLCJpc3MiOiJhcHBsaWNhdGlvbkF1dGgiLCJleHAiOjE2NTYxNzMwMjIsImlhdCI6MTYyNDYzNzAyMn0=.e6XDoSUDy7GdKShVLPM4RXKSZqsRxxDjAiydG+JUE6I=
+                from: bucket
+                to: ':https://p7067536c1tst-admin.occa.ocs.oraclecloud.com'
+            - occ/copy:
+                arguments: '--dryrun'
+                from: /build_asset.txt
+                to: 'https://p7067536c1tst-admin.occa.ocs.oraclecloud.com'
+workflows:
+  s3-example:
+    jobs:
+      - build
