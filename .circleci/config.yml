@@ -10,6 +10,12 @@ jobs:
           cache-path: ~/project/node_modules
           override-ci-command: npm install
       - run: npm run test
+    steps:
+      - checkout
+      - node/install-packages:
+          cache-path: ~/project/DCU
+          override-ci-command: npm install -g
+      - run: npm run test
 workflows:
   test_my_app:
     jobs:
